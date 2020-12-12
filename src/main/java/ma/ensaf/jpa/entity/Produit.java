@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 // JPA
 @Entity
@@ -21,6 +22,7 @@ import lombok.Setter;
 @Getter @Setter
 @RequiredArgsConstructor @AllArgsConstructor
 @Builder(toBuilder = true)
+@ToString
 public class Produit {
 	
 	@Id @GeneratedValue
