@@ -1,0 +1,9 @@
+
+pluginManagement {
+     plugins {
+          id "com.github.ben-manes.versions" version "$versions_plugin_version"
+          id "io.franzbecker.gradle-lombok" version "$lombok_plugin_version"
+     }
+}
+
+rootProject.name = 'jpa01'
