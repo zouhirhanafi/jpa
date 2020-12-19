@@ -31,6 +31,19 @@ public class Main {
 	
 	private ProduitDao produitDao = new ProduitDao();
 	
+	
+//	public static <T extends Number> T min (T a, T b) {
+//		return a <= b ? a : b;
+//	}
+	
+//	public static float min (float a, float b) {
+//		return a <= b ? a : b;
+//	}
+//	
+//	public static float min (float a, float b) {
+//		return a <= b ? a : b;
+//	}
+	
     protected void ex01() {
     	log.info("=== exemple 1 ===");
     	@Cleanup EntityManager entityManager = DaoUtils.createEntityManager();
@@ -41,6 +54,7 @@ public class Main {
         // les operations de crud
         Client c = Client.builder().name("zouhir HANAFI").build();
         entityManager.persist(c);
+        
         // fin de la trancation
         txn.commit();
     }
@@ -53,8 +67,11 @@ public class Main {
     	// debut de la transaction
     	txn.begin();
     	// les operations de crud
-    	Produit p = Produit.builder().designation("clavier").pu(40).reference("c01").build();
-    	entityManager.persist(p);
+//    	Produit p = Produit.builder().designation("clavier").pu(40).reference("c01").build();
+//    	entityManager.persist(p);
+    	// 2020-12-19 11:06:41.904
+    	Produit p2 = Produit.builder().id(4L).pu(35).designation("Souris").reference("s01").build();
+    	entityManager.merge(p2);
     	// fin de la trancation
     	txn.commit();
     }
@@ -114,11 +131,11 @@ public class Main {
     
 	public Main() {
 //		ex01();
-//		ex02();
+		ex02();
 //		ex03();
 //		ex04();
 //		ex05();
-		ex06();
+//		ex06();
 	}
 
 	/**

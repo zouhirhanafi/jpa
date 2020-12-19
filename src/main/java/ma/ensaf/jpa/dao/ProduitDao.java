@@ -16,23 +16,18 @@ public class ProduitDao {
 	}
 	
 	public Produit create(Produit p) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(p);
-		entityManager.getTransaction().commit();
 		return p;
 	}
 
 	public Produit update(Produit p) {
-		entityManager.getTransaction().begin();
+		// creation de l'entité si la clé primaire est null, sinon il met a jour les informations
 		entityManager.merge(p);
-		entityManager.getTransaction().commit();
 		return p;
 	}
 
 	public void delete(Produit produit) {
-		entityManager.getTransaction().begin();
 		entityManager.remove(produit);
-		entityManager.getTransaction().commit();
 	}
 
 	public void delete(Long id) {
@@ -41,17 +36,12 @@ public class ProduitDao {
 	}
 	
 	public Produit findOne(Long id) {
-		entityManager.getTransaction().begin();
 		Produit produit = entityManager.find(Produit.class, id);
-		entityManager.getTransaction().commit();
 		return produit;
 	}
 	
 	public List<Produit> findAll() {
-		entityManager.getTransaction().begin();
 		List<Produit> list = entityManager.createQuery("from Produit").getResultList();
-		entityManager.getTransaction().commit();
 		return list;
-		
 	}
 }
