@@ -1,8 +1,10 @@
 package ma.ensaf.jpa.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -27,6 +29,9 @@ public class Client {
 	private Long id;
 
 	private String name;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Adresse adresse;
 
 	@Override
 	public boolean equals(Object o) {
