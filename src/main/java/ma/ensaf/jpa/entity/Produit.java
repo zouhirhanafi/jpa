@@ -1,5 +1,7 @@
 package ma.ensaf.jpa.entity;
 
+import java.time.Instant;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +30,10 @@ public class Produit {
 	@Id @GeneratedValue
 	private Long id;
 	
+	@Builder.Default
+	@Column(nullable = false, updatable = false)
+	private Instant dateCreation = Instant.now();
+
 	@Column(unique = true, nullable = false, length = 20, name = "ref")
 	private String reference;
 	
