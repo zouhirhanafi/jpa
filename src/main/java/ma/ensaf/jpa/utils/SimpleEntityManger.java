@@ -1,6 +1,9 @@
 package ma.ensaf.jpa.utils;
 
+import java.util.function.Consumer;
+
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 import lombok.Getter;
 
@@ -17,4 +20,10 @@ public class SimpleEntityManger {
 		return instance;
 	}
 
+	public void inTransaction(Consumer<?> traitement) {
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		traitement.accept(null);
+		transaction.commit();
+	}
 }

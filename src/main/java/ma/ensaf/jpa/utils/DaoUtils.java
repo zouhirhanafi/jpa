@@ -13,4 +13,9 @@ public class DaoUtils {
 	private static EntityManagerFactory createEntityManagerFactory() {
 		return Persistence.createEntityManagerFactory("JpaPU");
 	}
+	
+	public static String makeCriteria(String criteria) {
+		if (criteria == null) return null;
+		return "%" + criteria.toUpperCase() + "%";
+	}
 }
