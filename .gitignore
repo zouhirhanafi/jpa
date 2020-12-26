@@ -7,3 +7,5 @@ build
 .settings
 bin
 .classpath
+
+src/generated
