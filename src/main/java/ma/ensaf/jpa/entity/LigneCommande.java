@@ -30,4 +30,19 @@ public class LigneCommande extends PersistentEntity {
 		ligneCommande.setId(id);
 		return ligneCommande;
 	}
+
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("LigneCommande [quantite=");
+		builder.append(quantite);
+		builder.append(", id=");
+		builder.append(getId());
+		builder.append(", produit=");
+		builder.append(produit);
+		builder.append("]");
+		return builder.toString();
+	}
+	
 }

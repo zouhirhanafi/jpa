@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean name="clavier" class="ma.ensaf.jpa.entity.Produit">
+		<property name="id" value="1000" />
+		<property name="designation" value="Clavier" />
+	</bean>
+	<bean name="souris" class="ma.ensaf.jpa.entity.Produit">
+		<property name="id" value="1001" />
+		<property name="designation" value="Souris" />
+	</bean>
+
+	<bean name="c01" class="ma.ensaf.jpa.entity.Client">
+		<property name="id" value="1" />
+		<property name="name" value="Zouhir HANAFI" />
+		<property name="adresse" ref="ad" />
+	</bean>
+
+	<bean name="c02" class="ma.ensaf.jpa.entity.Client">
+		<constructor-arg value="2" />
+		<constructor-arg value="Ahmed LAZRAK" />
+		<constructor-arg ref="ad" />
+	</bean>
+
+	<bean name="ad" class="ma.ensaf.jpa.entity.Adresse">
+		<property name="ligne1" value="Route Ain chkef" />
+		<property name="ville" value="Fès" />
+	</bean>
+
+	<bean name="c03" class="ma.ensaf.jpa.entity.Client">
+		<constructor-arg value="2" />
+		<constructor-arg value="Ahmed BENNANI" />
+		<constructor-arg>
+			<bean class="ma.ensaf.jpa.entity.Adresse">
+				<property name="ligne1" value="Route mouzar" />
+				<property name="ville" value="FES" />
+			</bean>
+		</constructor-arg>
+	</bean>
+
+	<bean name="cmd01" class="ma.ensaf.jpa.entity.Commande">
+		<property name="id" value="10" />
+		<property name="client" ref="c01" />
+		<property name="lignes">
+			<list>
+				<bean class="ma.ensaf.jpa.entity.LigneCommande">
+					<property name="produit" ref="clavier" />
+					<property name="quantite" value="5" />
+					<property name="id" value="100" />
+				</bean>
+				<bean class="ma.ensaf.jpa.entity.LigneCommande">
+					<property name="produit" ref="souris" />
+					<property name="quantite" value="10" />
+					<property name="id" value="101" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+</beans>

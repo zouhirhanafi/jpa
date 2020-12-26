@@ -41,6 +41,8 @@ repositories {
 
 dependencies {
 
+	compile "org.springframework:spring-context:$spring_version"
+
 	compile "org.hibernate:hibernate-core:$hibernate_version"
 	
 	runtime "org.postgresql:postgresql:$postgresql_version"
